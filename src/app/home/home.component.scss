@@ -1,0 +1,14 @@
+.content {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form .field {
+    margin-bottom: 10px;
+}

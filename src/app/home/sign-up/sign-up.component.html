@@ -1,0 +1,95 @@
+<div class="content">
+    <mat-card>
+        <mat-card-content>
+            <form novalidate
+                  class="form"
+                  [formGroup]="form"
+                  (ngSubmit)="onSubmit()">
+
+                <mat-form-field class="field">
+                    <input matInput
+                           type="text"
+                           placeholder="First name"
+                           formControlName="firstName" />
+
+                    <mat-error *ngIf="firstName.touched && firstName.errors?.required">
+                        First name is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="field">
+                    <input matInput
+                           type="text"
+                           placeholder="Last name"
+                           formControlName="lastName" />
+
+                    <mat-error *ngIf="lastName.touched && lastName.errors?.required">
+                        Last name is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="field">
+                    <input matInput
+                           type="email"
+                           placeholder="Email"
+                           formControlName="email"
+                           maxlength="320 " />
+
+                    <mat-error *ngIf="email.touched && email.errors?.required">
+                        Email is required
+                    </mat-error>
+
+                    <mat-error *ngIf="email.touched && email.errors?.email">
+                        Email must be a valid email address
+                    </mat-error>
+
+                    <mat-error *ngIf="password.touched && password.errors?.maxlength">
+                        Email must be a maximum of 320 characters
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="field">
+                    <input matInput
+                           type="password"
+                           placeholder="Password"
+                           formControlName="password"
+                           maxlength="30" />
+
+                    <mat-error *ngIf="password.touched && password.errors?.required">
+                        Password is required
+                    </mat-error>
+
+                    <mat-error *ngIf="password.touched && password.errors?.minlength">
+                        Password must be at least 8 characters
+                    </mat-error>
+
+                    <mat-error *ngIf="password.touched && password.errors?.maxlength">
+                        Password must be a maximum of 30 characters
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="field">
+                    <input matInput
+                           type="password"
+                           placeholder="Confirm password"
+                           formControlName="confirmPassword" />
+
+                    <mat-error *ngIf="confirmPassword.touched && confirmPassword.errors?.required">
+                        Confirm password is required
+                    </mat-error>
+
+                    <mat-error *ngIf="confirmPassword.touched && confirmPassword.errors?.mustMatch">
+                        Passwords must match
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button
+                        class="field"
+                        type="submit"
+                        color="primary">
+                    Sign up
+                </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
